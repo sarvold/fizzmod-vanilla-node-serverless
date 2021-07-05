@@ -1,0 +1,26 @@
+{
+  "name": "fizz-burger-challenge",
+  "version": "1.0.0",
+  "description": "Fiz-Burger Challenge",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "sls offline",
+    "lint": "eslint src/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fizzmod",
+    "burger",
+    "ecommerce",
+    "challenge"
+  ],
+  "author": "Fizzmod",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.30.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.23.4",
+    "serverless": "^2.50.0",
+    "serverless-offline": "^5.12.1"
+  }
+}
