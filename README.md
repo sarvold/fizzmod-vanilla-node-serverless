@@ -269,7 +269,7 @@ En una reunión decidimos que el lugar va a tener un código QR en sus mesas, qu
 
 Los chic@s de Front estan trabajando en la página con React y empezaron haciendo la parte del Menú (a donde va a estar dirigido el QR), también estan trabajando en los formularios para enviar la carga de datos.
 
-Necesitamos hacer la parte de Back, para cargar la información de los productos y para las consultas del Menú. Como somos varios no vamos a parar el desarrollo del eCommerce, por eso mientras el nosotros vamos a estar trabajando en eso, **te asignamos a vos la tarea de realizar estas APIs para poder cargar el menú**, creemos en vos y en tu capacidad.
+Necesitamos hacer la parte de Back, para cargar la información de los productos y para las consultas del Menú. Como somos varios no vamos a parar el desarrollo del eCommerce, por eso mientras nosotros vamos a estar trabajando en eso, **te asignamos a vos la tarea de realizar estas APIs para poder cargar el menú**, creemos en vos y en tu capacidad.
 
 ### APIs de Productos 🍔
 
