@@ -51,7 +51,9 @@ En este caso, vas a tener que armar una parte de un servicio de eCommerce. Va a 
 ### 🏁 ¿Cómo se evalúa?
 
 <details>
-	<summary> Como te dijimos antes, no es una revisión de qué tan bien conocés la sintaxis, sino de qué tan bien sabés aplicar las herramientas del lenguaje para llegar a una solución por encima del promedio. </summary>
+	<summary> Como te dijimos antes, no es una revisión de qué tan bien conocés la sintaxis, sino de qué tan bien sabés aplicar las herramientas del lenguaje para llegar a una solución por encima del promedio.
+
+<b>(Abrir para ver más ➕)</b></summary>
 
 Vamos a hacer nuestro análisis basandonos en:
 
@@ -74,7 +76,9 @@ Sabemos que esto puede tomarte un tiempo en terminar, hacelo con calma, y somos 
 
 
 <details>
-	<summary> Para hacer tu entrega seguí estas instrucciones </summary>
+	<summary> Para hacer tu entrega seguí estas instrucciones.
+
+<b>(Abrir para ver más ➕)</b></summary>
 
 1. Hacé un **fork** de este repositorio (⚠️ **recordá hacerlo privado!** ⚠️)
 2. Crea **una nueva branch** de tu fork del repo, llamada `DIS-fizzmod-challenge`
@@ -99,7 +103,9 @@ En algunos casos ya van a estar configuradas y solo esperamos que las respetes, 
 ### 🔀 GIT
 
 <details>
-	<summary> ❗❗ <b>Requerido</b> ❗❗ </summary>
+	<summary> ❗❗ <b>Requerido</b> ❗❗
+
+<b>(Abrir para ver más ➕)</b></summary>
 
 La herramienta para el control de versiones, mas querida por la comunidad, y también por nosotros, como ya es obvio.
 
@@ -115,7 +121,9 @@ No necesitamos que seas un expert@, pero si que sepás manejar al menos lo bási
 ### ➰ Node JS
 
 <details>
-	<summary> ❗❗ <b>Requerido</b> ❗❗ </summary>
+	<summary> ❗❗ <b>Requerido</b> ❗❗
+
+<b>(Abrir para ver más ➕)</b></summary>
 
 Vas a estar tomando el rol de un desarrollador Backend y queremos que uses **Javascript** con **Node.js**, para resolver el desafío.
 
@@ -136,7 +144,9 @@ Vas a contar con una configuración base, que vas a tener que ir extendiendo.
 ### 📦 NPM
 
 <details>
-	<summary> ❔ <b>Opcional</b> ❔ </summary>
+	<summary> ❔ <b>Opcional</b> ❔
+
+ <b>(Abrir para ver más ➕)</b></summary>
 
 El gestor de paquetes por exelencia de Node, es el que nosotros usamos. Podés usar todas las dependencias que quieras o creas necesitar, aunque tampoco abuses de ellas.
 
@@ -151,7 +161,9 @@ El proyecto ya cuenta con algunas instaladas para que puedas comenzar.
 ### 👀 Linter
 
 <details>
-	<summary> Es ❗ <b>Requerido</b> ❗ respetar sus reglas.</summary>
+	<summary> Es ❗ <b>Requerido</b> ❗ respetar sus reglas.
+
+<b>(Abrir para ver más ➕)</b></summary>
 
 > ¿ Qué es un Linter ?
 
@@ -173,7 +185,9 @@ Nosotros usamos un linter llamado `eslint` y ya está configurado, agregado como
 ### 🥬 Mongodb
 
 <details>
-	<summary> ❗❗ <b>Requerido</b> ❗❗ </summary>
+	<summary> ❗❗ <b>Requerido</b> ❗❗
+
+<b>(Abrir para ver más ➕)</b></summary>
 
 Como **Base de Datos** te pedimos que uses **MongoDB**, una base no-relacional (no-sql). Si no sabés, no es díficil de aprender, es muy parecido a Javascript, nos permite guardar datos sin una estructura definida de antemano.
 
@@ -186,7 +200,9 @@ Como **Base de Datos** te pedimos que uses **MongoDB**, una base no-relacional (
 ### ⚡ Serverless
 
 <details>
-	<summary> Ya esta configurado, es ❗ <b>Requerido</b> ❗ usarlo </summary>
+	<summary> Ya esta configurado, es ❗ <b>Requerido</b> ❗ usarlo.
+
+<b>(Abrir para ver más ➕)</b></summary>
 
 No sé si habrás escuchado hablar de Serverless, pero es una forma de manejar las aplicaciones en la nube que te permite enfocarte en implementar tu aplicación, dejando de lado la administración de infraestructura al delegarlo a un proovedor como Amazon Web Services, Google Cloud Platform, Azure u otros.
 
@@ -208,7 +224,9 @@ En el archivo `serverless.yml` también configuramos dos APIs de prueba (un `GET
 ### 🐳 Docker
 
 <details>
-	<summary> 🌟 <b>Bonus</b> 🌟 </summary>
+	<summary> 🌟 <b>Bonus</b> 🌟
+
+<b>(Abrir para ver más ➕)</b></summary>
 
 Nos gusta mucho Docker y Docker compose ya que nos simplifican la configuración de ambientes locales. Podés hacer es entregar el desafío ejecutándose dentro de contenedores (tanto la API como una instancia de mongodb).
 
