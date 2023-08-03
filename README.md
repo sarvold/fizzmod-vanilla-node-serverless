@@ -396,10 +396,10 @@ Debe mostrar todos los datos del producto.
 
 ### 🌟 Bonus
 
-Si te animas a dar más, te ofrecemos unos retos adicioanles (son opcionales):
+Te ofrecemos unos retos adicioanles para que el desarrollo sea completo:
 
 - Entregar tu solución con [Docker](#-docker) (y docker-compose).
-- Realizar Unit Tests de las APIs
+- Realizar Unit Tests de las APIs. Para eso podes usar la libreria que mas te guste, Mocha, Sinon, Jest, etc.
 
 ---
 
