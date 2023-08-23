@@ -313,6 +313,10 @@ Adicionalmente se debe guardar los campos:
 
 Se debe responder con el `id` del producto guardado en la base de datos.
 
+> Comentarios
+
+Tené en cuenta no solo el tipo de datos sino para que se podrían usar y evitar cargas de datos incoherentes (aunque cumplan con el tipo)
+
 #### Edición de Productos
 
 ```http
@@ -396,14 +400,16 @@ Debe mostrar todos los datos del producto.
 
 ### 🌟 Retos finales
 
-Te ofrecemos unos retos finales para que el desarrollo sea completo:
+Te ofrecemos unos retos finales para que el desarrollo sea completo
 
-- Entregar tu solución con [Docker](#-docker) (y docker-compose).
-- Realizar Unit Tests de las APIs. Para eso podes usar la libreria que mas te guste, Mocha, Sinon, Jest, etc.
+- Entregar tu solución con [Docker](#-docker) (y docker-compose). Necesitamos que podamos hacer `docker compose up` en la consola/terminal y que el ambiente con las API en Serverless y la base de datos esten listas para poder probar.
+- Realizar Unit Tests de las APIs. Para eso podes usar la libreria que mas te guste, [Mocha](https://mochajs.org/), [Sinon](https://sinonjs.org/), [Jest](https://jestjs.io/), etc. Aclaranos cual usaste y como correrlos.
+
+Aunque sean retos finales, necesitamos que la entrega incluya estos 2 puntos. Cualquier aclaración necesaria antes de corregir tu solución, puede estar incluidas en algun Archivo estilo Readme.
 
 ---
 
-Eso es todo!
+Eso es todo, exitos!
 
 Esperamos tu respuesta!
 
