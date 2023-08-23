@@ -34,7 +34,7 @@ La idea es que te enfrentes a un desafío, diviertas, inspires y talvés aprenda
 		- [Eliminar](#eliminar-producto)
 		- [Listado](#listado-de-productos)
 		- [Get Individual](#get-individual-de-producto)
-	- [Bonus](#-bonus)
+	- [Retos finales](#-retos-finales)
 
 ---
 
@@ -394,9 +394,9 @@ Muestra los datos de un producto
 
 Debe mostrar todos los datos del producto.
 
-### 🌟 Bonus
+### 🌟 Retos finales
 
-Te ofrecemos unos retos adicioanles para que el desarrollo sea completo:
+Te ofrecemos unos retos finales para que el desarrollo sea completo:
 
 - Entregar tu solución con [Docker](#-docker) (y docker-compose).
 - Realizar Unit Tests de las APIs. Para eso podes usar la libreria que mas te guste, Mocha, Sinon, Jest, etc.
