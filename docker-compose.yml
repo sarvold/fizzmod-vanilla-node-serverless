@@ -1,0 +1,30 @@
+version: '3.7'
+services:
+  fizzburger-serverless:
+    container_name: fizz-serverless
+    build:
+      context: .
+    expose:
+      - 4000
+    ports:
+      - "4000:4000"
+    environment:
+      - MONGODB_URI=mongodb://mongoContainer:27017/fizz-burger
+    networks:
+      - fizzburger-network
+    depends_on:
+      - mongo
+    command: npm start
+  mongo:
+    container_name: mongoContainer
+    image: mongo
+    expose:
+      # remove later
+      - 27017
+    ports:
+      - "27017:27017"
+    networks:
+      - fizzburger-network
+networks:
+  fizzburger-network:
+    driver: bridge
