@@ -1,5 +1,7 @@
 'use strict';
 
+const validProductTypes = require('../models/validProductTypes');
+
 const validateCreateProduct = product => {
 	const errors = [];
 
@@ -7,7 +9,7 @@ const validateCreateProduct = product => {
 	if(!product.name || typeof product.name !== 'string')
 		errors.push('Name is required and must be a string.');
 
-	if(!product.type || !['burger', 'condiments', 'snacks', 'drinks'].includes(product.type))
+	if(!product.type || !validProductTypes.includes(product.type))
 		errors.push('Type is required and must be one of: burger, condiments, snacks, drinks.');
 
 	if(typeof product.price !== 'number' || product.price < 0)

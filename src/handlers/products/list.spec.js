@@ -14,84 +14,92 @@ let collectionMock;
 let connectMock;
 
 describe('list.handler', () => {
-    beforeEach(() => {
-        jest.spyOn(Response, 'success');
-        jest.spyOn(Response, 'error');
+	beforeEach(() => {
+		jest.spyOn(Response, 'success');
+		jest.spyOn(Response, 'error');
 
-        event = {
-            queryStringParameters: {
-                name: 'Burger',
-                type: 'burger',
-                priceFrom: '5',
-                priceTo: '15',
-                isPromotion: 'true',
-                orderBy: 'name',
-                orderDirection: 'asc'
-            }
-        };
+		collectionMock = {
+			find: jest.fn().mockReturnThis(),
+			sort: jest.fn().mockReturnThis(),
+			toArray: jest.fn().mockResolvedValue([])
+		};
 
-        collectionMock = {
-            find: jest.fn().mockReturnThis(),
-            sort: jest.fn().mockReturnThis(),
-            toArray: jest.fn().mockResolvedValue([])
-        };
+		connectMock = jest.fn().mockResolvedValue({ collection: jest.fn().mockReturnValue(collectionMock) });
 
-        connectMock = jest.fn().mockResolvedValue({ collection: jest.fn().mockReturnValue(collectionMock) });
+		Database.mockImplementation(() => ({
+			connect: connectMock
+		}));
 
-        Database.mockImplementation(() => ({
-            connect: connectMock
-        }));
+		jest.clearAllMocks();
+	});
 
-        jest.clearAllMocks();
-    });
+	afterEach(() => {
+		jest.restoreAllMocks();
+	});
 
-    afterEach(() => {
-        jest.restoreAllMocks();
-    });
+	describe('when no query parameters are provided', () => {
+		beforeEach(() => {
+			event = { queryStringParameters: null };
+		});
+		it('should return all products if no query parameters are provided', async () => {
+			const expectedResult = new Response(200, []);
 
-    it('should return all products if no query parameters are provided', async () => {
-        event.queryStringParameters = null;
-        const expectedResult = new Response(200, []);
+			const result = await list.handler(event);
 
-        const result = await list.handler(event);
+			expect(connectMock).toHaveBeenCalled();
+			expect(collectionMock.find).toHaveBeenCalled();
+			expect(collectionMock.sort).not.toHaveBeenCalled();
+			expect(collectionMock.toArray).toHaveBeenCalled();
+			expect(Response.success).toHaveBeenCalledWith([]);
+			expect(result).toEqual(expectedResult);
+		});
+	});
+	describe('when query parameters are provided', () => {
+		beforeEach(() => {
+			event = {
+				queryStringParameters: {
+					name: 'Burger',
+					type: 'burger',
+					priceFrom: '5',
+					priceTo: '15',
+					isPromotion: 'true',
+					orderBy: 'name',
+					orderDirection: 'asc'
+				}
+			};
+		});
 
-        expect(connectMock).toHaveBeenCalled();
-        expect(collectionMock.find).toHaveBeenCalled();
-        expect(collectionMock.sort).not.toHaveBeenCalled();
-        expect(collectionMock.toArray).toHaveBeenCalled();
-        expect(Response.success).toHaveBeenCalledWith([]);
-        expect(result).toEqual(expectedResult);
-    });
+		it('should return filtered and sorted products if query parameters are provided', async () => {
+			const expectedResult = new Response(200, []);
 
-    it('should return filtered and sorted products if query parameters are provided', async () => {
-        const expectedResult = new Response(200, []);
+			const result = await list.handler(event);
 
-        const result = await list.handler(event);
+			expect(connectMock).toHaveBeenCalled();
+			expect(collectionMock.find).toHaveBeenCalledWith(
+				buildFilter('Burger', 'burger', '5', '15', 'true')
+			);
+			expect(collectionMock.sort).toHaveBeenCalledWith(
+				buildSort('name', 'asc')
+			);
+			expect(collectionMock.toArray).toHaveBeenCalled();
+			expect(Response.success).toHaveBeenCalledWith([]);
+			expect(result).toEqual(expectedResult);
+		});
 
-        expect(connectMock).toHaveBeenCalled();
-        expect(collectionMock.find).toHaveBeenCalledWith(
-            buildFilter('Burger', 'burger', '5', '15', 'true')
-        );
-        expect(collectionMock.sort).toHaveBeenCalledWith(
-            buildSort('name', 'asc')
-        );
-        expect(collectionMock.toArray).toHaveBeenCalled();
-        expect(Response.success).toHaveBeenCalledWith([]);
-        expect(result).toEqual(expectedResult);
-    });
+		it('should return an error response if an error occurs during the fetch process', async () => {
+			const expectedResult = new Response(500, { message: 'An error occurred while fetching products' });
 
-    it('should return an error response if an error occurs during the fetch process', async () => {
-        const expectedResult = new Response(500, { message: 'An error occurred while fetching products' });
+			connectMock = jest.fn().mockRejectedValue(new Error('An error occurred'));
+			Database.mockImplementation(() => ({
+				connect: connectMock
+			}));
 
-        connectMock = jest.fn().mockRejectedValue(new Error('An error occurred'));
-        Database.mockImplementation(() => ({
-            connect: connectMock
-        }));
+			const result = await list.handler(event);
 
-        const result = await list.handler(event);
+			expect(connectMock).toHaveBeenCalled();
+			expect(Response.error).toHaveBeenCalledWith('An error occurred while fetching products');
+			expect(result).toEqual(expectedResult);
+		});
 
-        expect(connectMock).toHaveBeenCalled();
-        expect(Response.error).toHaveBeenCalledWith('An error occurred while fetching products');
-        expect(result).toEqual(expectedResult);
-    });
+	});
 });

@@ -4,6 +4,7 @@ const Response = require('../../http/response');
 const Database = require('../../db/database');
 const buildFilter = require('../../utils/filterBuilder');
 const buildSort = require('../../utils/sortBuilder');
+const validateQueryStringParameters = require('../../utils/queryStringParametersValidator');
 
 exports.handler = async event => {
 	try {
@@ -14,6 +15,13 @@ exports.handler = async event => {
 			const cursor = db.collection('products').find();
 			const products = await cursor.toArray();
 			return Response.success(products);
+		}
+		// Validate queryStringParameters
+		if(event.queryStringParameters) {
+			const validationError = validateQueryStringParameters(event.queryStringParameters);
+			if(validationError)
+				return validationError;
+
 		}
 		const {
 			name, type, priceFrom, priceTo, isPromotion, orderBy, orderDirection

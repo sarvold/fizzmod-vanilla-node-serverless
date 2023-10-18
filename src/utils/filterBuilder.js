@@ -2,20 +2,24 @@
 
 const buildFilter = (name, type, priceFrom, priceTo, isPromotion) => {
 	const filter = {};
+
 	if(name)
-		filter.name = { $regex: name, $options: 'i' };
+		filter.name = { $options: 'i', $regex: name };
 
 	if(type)
-		filter.type = type;
+		filter.type = type.toLowerCase();
 
-	if(priceFrom)
-		filter.price = { $gt: parseFloat(priceFrom) };
+	if(priceFrom || priceTo) {
+		filter.price = {};
+		if(priceFrom)
+			filter.price.$gt = Number(priceFrom);
 
-	if(priceTo)
-		filter.price = { ...filter.price, $lt: parseFloat(priceTo) };
+		if(priceTo)
+			filter.price.$lt = Number(priceTo);
 
-	if(isPromotion === '1' || isPromotion === '0')
-		filter.isPromotion = isPromotion === '1';
+	}
+	if(isPromotion === '1' || isPromotion === '0' || isPromotion === 'true' || isPromotion === 'false')
+		filter.isPromotion = isPromotion === '1' || isPromotion === 'true';
 
 	return filter;
 };
