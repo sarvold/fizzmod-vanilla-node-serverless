@@ -9,8 +9,8 @@ provider:
   endpointType: REGIONAL
   apiName: FizzBurgerChallenge API
   environment:
+    NODE_ENV: ${self:provider.stage}
     MONGODB_URI: mongodb://localhost:27017/fizz-burger
-    # MONGODB_URI: ${file(config.json):MONGODB_URI}
 
 custom:
   serverless-offline:
@@ -27,7 +27,7 @@ functions:
           integration: lambda-proxy
           path: /products
           method: post
-          # cors: true
+          cors: true
   ReadProduct:
     handler: src/handlers/products/read.handler
     description: Get a single product by id.
@@ -36,7 +36,7 @@ functions:
           integration: lambda-proxy
           path: /products/{id}
           method: get
-          # cors: true
+          cors: true
   UpdateProduct:
     handler: src/handlers/products/update.handler
     description: Update a product.
@@ -45,7 +45,7 @@ functions:
           integration: lambda-proxy
           path: /products/{id}
           method: put
-          # cors: true
+          cors: true
   DeleteProduct:
     handler: src/handlers/products/delete.handler
     description: Delete a product by id.
@@ -54,7 +54,7 @@ functions:
           integration: lambda-proxy
           path: /products/{id}
           method: delete
-          # cors: true
+          cors: true
   ListProducts:
     handler: src/handlers/products/list.handler
     description: Get all products.
@@ -63,7 +63,7 @@ functions:
           integration: lambda-proxy
           path: /products
           method: get
-          # cors: true
+          cors: true
 
 plugins:
   - serverless-offline
